@@ -43,12 +43,18 @@ module.exports = (api, options, rootOptions) => {
       'vuex-module-decorators': '^0.17.0',
     },
   });
-  api.render('./template');
   api.render((files) => {
-    Reflect.deleteProperty(files, 'src/views/layout.vue');
-    Reflect.deleteProperty(files, 'src/views/Home.vue');
-    Reflect.deleteProperty(files, 'src/views/About.vue');
-    Reflect.deleteProperty(files, 'src/assets/logo.png');
+    Object.keys(files)
+      .filter((path) => path.startsWith('src/') || path.startsWith('public/'))
+      .forEach((path) => delete files[path]);
+    console.log(Object.keys(files));
   });
+  api.render('./template');
+  // api.render((files) => {
+  //   Reflect.deleteProperty(files, 'src/views/layout.vue');
+  //   Reflect.deleteProperty(files, 'src/views/Home.vue');
+  //   Reflect.deleteProperty(files, 'src/views/About.vue');
+  //   Reflect.deleteProperty(files, 'src/assets/logo.png');
+  // });
   console.log(__dirname);
 };
