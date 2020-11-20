@@ -1,0 +1,20 @@
+{
+    "useConfigFiles": true,
+    "plugins": {
+      "@vue/cli-plugin-babel": {},
+      "@vue/cli-plugin-typescript": {
+        "classComponent": false,
+        "useTsWithBabel": true
+      },
+      "@vue/cli-plugin-eslint": {
+        "config": "prettier",
+        "lintOn": [
+          "save"
+        ]
+      }
+    },
+    "router": true,
+    "routerHistoryMode": false,
+    "vuex": true,
+    "cssPreprocessor": "dart-sass"
+}
