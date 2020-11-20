@@ -43,7 +43,6 @@ module.exports = (api, options, rootOptions) => {
       'vuex-module-decorators': '^0.17.0',
     },
   });
-
   api.render('./template');
   api.render((files) => {
     Reflect.deleteProperty(files, 'src/views/layout.vue');
@@ -51,4 +50,5 @@ module.exports = (api, options, rootOptions) => {
     Reflect.deleteProperty(files, 'src/views/About.vue');
     Reflect.deleteProperty(files, 'src/assets/logo.png');
   });
+  console.log(__dirname);
 };
